@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <title>BMI Calculator</title>
+
+
+</head>
+
+<body>
+    <div id="main">
+        <h1>
+            <center>BMI CACLULATOR</center>
+        </h1>
+    </div>
+    <div class="container">
+        <form action="/bmicalculator" method="post" onsubmit="return false">
+            <label>Your Gender :</label>
+            <input type="text" name="Name" placeholder="Enter your  gender" />
+            <br />
+            <label>Height  :</label>
+            <input id="Height" name="Height" placeholder="Enter your height(cm)" />
+            <br />
+            <label>Weight  :</label>
+            <input id="Weight" name="Weight" placeholder="Enter your weight(kg)" />
+            <br />
+            <button class="btn" type="submit" onclick="getbmivalue()">Get-BMI</button>
+            <br />
+            <label>BMI Value  :</label>
+            <input name="" id="bmivalue" onclick="getcalBMI() ">
+            <button class="btn" type="submit">Health risk check</button>
+        </form>
+
+    </div>
+
+
+</body>
+
+</html>
+<script>
+    function getbmivalue() {
+        var weight = document.getElementById('Weight').value;
+        var height = document.getElementById('Height').value;
+        height = height / 100;
+        var bmic = weight / (height * height)
+        document.getElementById('bmivalue').value = bmic;
+
+
+        if (bmic < 18.4) {
+            document.write("BMI is", bmic)
+            document.write("  under weight malnutrition risk");
+
+        } else if (18.5 < bmic < 24.9) {
+            document.write("BMI is", bmic)
+            document.write(" low risk");
+
+            console.log("low risk");
+        } else if (25 < bmic < 29.9) {
+            document.write("BMI is", bmic)
+            document.write(" Enhanced risk");
+
+            console.log("Enhanced risk");
+        } else if (30 < bmic < 34.9) {
+            document.write("BMI is", bmic)
+            document.write(" Medium risk");
+
+            console.log("Medium risk");
+        } else if (35 < bmic < 39.9) {
+            document.write("BMI is", bmic)
+            document.write(" High risk");
+
+            console.log("High risk ");
+        } else if (bmic >= 40) {
+            document.write("BMI is", bmic)
+            document.write(" Very high risk");
+
+            console.log(" Very high risk");
+        }
+
+
+
+
+
+
+
+        var data = [{
+            "Gender": "Male",
+            "HeightCm": 171,
+            "WeightKg": 96
+        }, {
+            "Gender": "Male",
+            "HeightCm": 161,
+            "WeightKg": 85
+        }, {
+            "Gender": "Male",
+            "HeightCm": 180,
+            "WeightKg": 77
+        }, {
+            "Gender": "Female",
+            "HeightCm": 166,
+            "WeightKg": 62
+        }, {
+            "Gender": "Female",
+            "HeightCm": 150,
+            "WeightKg": 70
+        }, {
+            "Gender": "Female",
+            "HeightCm": 167,
+            "WeightKg": 82
+        }]
+
+    }
+</script>
